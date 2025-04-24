@@ -1,0 +1,15 @@
+.map-container {
+  display: flex;
+  justify-content: center; /* Centers the map horizontally */
+  align-items: center; /* Centers the map vertically */
+  height: 500px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
