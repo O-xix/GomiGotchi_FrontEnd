@@ -38,3 +38,22 @@
     align-items: center; /* Vertically aligns the items */
     gap: 10px; /* Adds space between the back button and the heading */
 }
+
+.page-link {
+    padding: 0.5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s;
+    color: hsl(0, 0%, 46%)
+  }
+  
+  .page-link:hover {
+    background-color: hsl(0, 0%, 85%);
+    color: hsl(0, 0%, 28%)
+  }
+  
+  .icon {
+    font-size: 2em;
+  }

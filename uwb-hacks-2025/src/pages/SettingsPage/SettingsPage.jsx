@@ -8,7 +8,7 @@ function SettingsPage() {
         <>
             <div className="settings-page">
                 <div className='settings-header'>
-                    <Link to="/"><IoArrowBackCircleOutline className='back-button'/></Link>
+                    <Link to="/" className='page-link'><IoArrowBackCircleOutline className='icon'/></Link>
                     <h1>Settings Page</h1>
                 </div>
                 <div className='account-details'>
