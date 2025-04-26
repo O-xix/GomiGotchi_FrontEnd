@@ -6,74 +6,75 @@
     min-height: 100vh;
     background-color: #f5f5f5;
     text-align: center;
+    position: relative; /* Ensure the parent container is positioned */
 }
 
 .circle {
-    width: 1000px; /* Scaled up for larger screens */
-    height: 1000px; /* Scaled up for larger screens */
+    width: 400px; /* Further reduced size */
+    height: 400px; /* Further reduced size */
     background-color: #42BC5C;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    margin-top: -50px; /* Adjusted spacing */
-    margin-bottom: 200px; /* Adjusted spacing */
+    margin-top: -20px; /* Adjusted spacing */
+    margin-bottom: 40px; /* Adjusted spacing */
 }
 
 .HappyGomi {
-    width: 80%; /* Larger scaling for the image */
+    width: 50%; /* Smaller scaling for the image */
     height: auto;
     z-index: 1;
     position: relative;
 }
 
 .big-header {
-    font-size: 150px; /* Increased font size for better visibility */
-    margin-bottom: 50px; /* Adjusted spacing */
+    font-size: 60px; /* Reduced font size */
+    margin-bottom: 15px; /* Adjusted spacing */
 }
 
 .input-field {
-    width: 1200px; /* Doubled width */
-    height: 120px; /* Doubled height */
-    padding: 40px; /* Doubled padding */
-    margin: 40px 0; /* Adjusted spacing */
+    width: 500px; /* Reduced width */
+    height: 50px; /* Reduced height */
+    padding: 15px; /* Reduced padding */
+    margin: 15px 0; /* Adjusted spacing */
     border: 1px solid #ccc;
-    border-radius: 20px; /* Doubled border radius */
-    font-size: 48px; /* Doubled font size */
+    border-radius: 8px; /* Reduced border radius */
+    font-size: 20px; /* Reduced font size */
     color: black;
 }
 
 .button {
-    width: 600px; /* Doubled width */
-    height: 160px; /* Doubled height */
-    padding: 40px; /* Doubled padding */
-    margin: 40px 0; /* Adjusted spacing */
+    width: 250px; /* Reduced width */
+    height: 60px; /* Reduced height */
+    padding: 15px; /* Reduced padding */
+    margin: 15px 0; /* Adjusted spacing */
     background-color: #D9D9D9;
     color: black;
     border: none;
-    border-radius: 20px; /* Doubled border radius */
-    font-size: 48px; /* Doubled font size */
+    border-radius: 8px; /* Reduced border radius */
+    font-size: 20px; /* Reduced font size */
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.hyperlink {
-    color: #0BA9FF;
-    text-decoration: underline;
-    font-size: 48px; /* Doubled font size */
-    margin-top: 20px; /* Adjusted spacing */
 }
 
 .button:hover {
     background-color: #CACACA;
 }
 
+.hyperlink {
+    color: #0BA9FF;
+    text-decoration: underline;
+    font-size: 20px; /* Reduced font size */
+    margin-top: 5px; /* Adjusted spacing */
+}
+
 .logo {
-    position: absolute;
-    bottom: 20px; /* Adjust distance from the bottom */
-    right: 20px; /* Adjust distance from the right */
-    width: 150px; /* Adjust size of the logo */
-    height: auto;
-    z-index: 10; /* Ensure it appears above other elements */
+    position: absolute; /* Use absolute positioning relative to the parent container */
+    bottom: 0px; /* Aligns the bottom of the logo to the bottom of the scene */
+    right: 0px; /* Aligns the right of the logo to the right of the scene */
+    width: 200px; /* Keeps the current size */
+    height: auto; /* Maintains aspect ratio */
+    z-index: 10; /* Ensures it appears above other elements */
 }
