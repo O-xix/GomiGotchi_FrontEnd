@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import './LitterPage.css'; // Import the CSS file for styling
+import './LitterInfoPage.css'; // Import the CSS file for styling
 
-function LitterPage() {
+function LitterInfoPage() {
   const { id } = useParams(); // Extract the 'id' from the URL
 
   // Check if the ID is 1 and display default content
@@ -36,4 +36,4 @@ function LitterPage() {
   );
 }
 
-export default LitterPage;
+export default LitterInfoPage;

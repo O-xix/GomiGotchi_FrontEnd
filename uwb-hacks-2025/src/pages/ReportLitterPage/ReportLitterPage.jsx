@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './LitterPage.css'; // Import the CSS file for styling
+import './ReportLitterPage.css'; // Import the CSS file for styling
 
-function InputLitterPage() {
+function ReportLitterPage() {
   const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -73,4 +73,4 @@ function InputLitterPage() {
   );
 }
 
-export default InputLitterPage;
+export default ReportLitterPage;
