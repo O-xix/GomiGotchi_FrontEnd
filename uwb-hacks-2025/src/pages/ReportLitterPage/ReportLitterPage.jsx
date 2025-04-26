@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './ReportLitterPage.css'; // Import the CSS file for styling
+import { IoArrowBackCircleOutline } from 'react-icons/io5'; // Import the back arrow icon
+import { Link } from 'react-router-dom'; // Import Link for navigation
 
-function ReportLitterPage() {
-  const [address, setAddress] = useState('');
+function ReportLitterPage({ address }) {
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -27,31 +28,25 @@ function ReportLitterPage() {
 
   return (
     <div className="input-litter-page">
+      <div className="header">
+        <Link to="/"><IoArrowBackCircleOutline className='back-button'/></Link>
       <h1>Input Litter Details</h1>
+      </div>
       <form onSubmit={handleSubmit} className="input-form">
         <label>
-          Address:
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter address"
-            required
-          />
+          Address: { address || 'No address provided' }
         </label>
+        <br />
         <label>
           Description:
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter description"
-            required
-          />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter description" required/>
         </label>
+        <br />
         <label>
           Upload Image:
-          <input type="file" accept="image/*" onChange={handleImageUpload} />
+          <input type="file" accept="image/*" onChange={handleImageUpload} required/>
         </label>
+        <br />
         <button type="submit">Submit</button>
       </form>
 
@@ -62,7 +57,7 @@ function ReportLitterPage() {
         <p><strong>Description:</strong> {description || 'No description provided'}</p>
         {preview ? (
           <div className="image-preview">
-            <img src={preview} alt="Preview" />
+            <img src={preview} alt="Preview"/>
             <p className="caption">Uploaded Image</p>
           </div>
         ) : (
