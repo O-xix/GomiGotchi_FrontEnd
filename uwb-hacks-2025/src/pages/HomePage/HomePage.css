@@ -1,8 +1,116 @@
-.home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers all child elements horizontally */
-    justify-content: center; /* Centers all child elements vertically */
-    min-height: 100vh; /* Ensures the container takes up the full viewport height */
-    text-align: center;
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 3vw;
+  height: 5em;
+  flex-grow: 0;
+  background-color: hsl(0, 0%, 95%);
+}
+
+h1 {
+  font-family: "DM Sans";
+  font-size: 3rem;
+  font-weight: 900;
+  height: 50%;
+  line-height: 0.8;
+  border-radius: 0.1em;
+  color: #121212
+}
+
+.page-link {
+  padding: 0.5em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s;
+  color: hsl(0, 0%, 46%)
+}
+
+.page-link:hover {
+  background-color: hsl(0, 0%, 85%);
+  color: hsl(0, 0%, 28%)
+}
+
+.icon {
+  font-size: 2em;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  padding: 1em 3vw 2em 3vw;
+  gap: 1vw;
+  flex-grow: 1;
+}
+
+.gomi-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 2em;
+  padding: 3em;
+  border-radius: 1em;
+  background-image: url('../../assets/images/PixelBackground.png');
+  background-size: cover;
+  image-rendering: pixelated;
+  border: #121212 solid 3px;
+}
+
+.gomi {
+  width: 60%;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
   }
+
+  50% {
+      transform: translateY(-20px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.hunger-bar-container{
+  width: 100%;
+  background-color: #d9d9d9;
+  border: black 2px solid;
+}
+
+.hunger-bar {
+  background-color: #00990F;
+  padding: 0.2em 0.4em;
+}
+
+.hunger-bar p{
+  font-family: "Micro 5";
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 720px) {
+  main {
+    flex-direction: column;
+  }
+
+  .gomi-section {
+    width: 100%;
+  }
+
+  .gomi {
+    width: 35%;
+  }
+}
