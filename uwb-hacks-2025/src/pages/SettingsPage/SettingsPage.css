@@ -1,0 +1,40 @@
+.settings-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all child elements horizontally */
+    justify-content: center; /* Centers all child elements vertically */
+    min-height: 100vh; /* Ensures the container takes up the full viewport height */
+    text-align: center;
+}
+
+.account-details {
+    margin: 20px 0; /* Adds space above and below the account details section */
+    font-size: 1.2em; /* Increases the font size for better readability */
+    background-color: #D9D9D9; /* Light gray background */
+    padding: 20px; /* Adds space inside the box */
+    border-radius: 10px; /* Rounds the corners of the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    width: 80%; /* Adjusts the width of the box */
+    max-width: 600px; /* Ensures the box doesn't get too wide */
+    text-align: left; /* Aligns text to the left inside the box */
+}
+
+.account-details h3 {
+    margin: 10px 0; /* Adds spacing between the child elements */
+}
+
+.back-button {
+    height: 50px;
+    width: 50px;
+
+}
+
+.back-button:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+.settings-header {
+    display: flex;
+    align-items: center; /* Vertically aligns the items */
+    gap: 10px; /* Adds space between the back button and the heading */
+}
