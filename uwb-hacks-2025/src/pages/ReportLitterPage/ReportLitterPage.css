@@ -1,6 +1,10 @@
-.litter-page {
-    margin: 20px;
-    padding: 20px;
+.input-litter-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers all child elements horizontally */
+  justify-content: center; /* Centers all child elements vertically */
+  min-height: 100vh; /* Ensures the container takes up the full viewport height */
+  text-align: center;
   }
   
   .image-container {
@@ -14,15 +18,25 @@
     margin: 0 10px;
   }
   
-  .image-item img {
+  /* .image-item img {
     max-width: 100%;
     height: auto;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
+  } */
   
   .caption {
     margin-top: 5px;
     font-size: 14px;
     color: #555;
+  }
+
+  .header {
+    display: flex;
+    align-items: center; /* Vertically aligns the items */
+    gap: 10px; /* Adds space between the back button and the heading */
+  }
+
+  img {
+    width: 100%;
   }
