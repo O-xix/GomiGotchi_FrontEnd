@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css'; // Import the CSS file for styling
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Map() {
   const mapRef = useRef(null); // Use a ref to store the map instance
@@ -51,8 +52,9 @@ function Map() {
   };
 
   return (
-    <div className="map-container" style={{ height: '500px', width: '100%' }}>
+    <div className="map-container" style={{ width: '100%' }}>
       <div id="map" style={{ height: '100%', width: '100%' }}></div>
+      <Link to = "/report-litter" className='report-button'>Report litter</Link>
     </div>
   );
 }

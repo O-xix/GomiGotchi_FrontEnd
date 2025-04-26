@@ -2,14 +2,31 @@
   display: flex;
   justify-content: center; /* Centers the map horizontally */
   align-items: center; /* Centers the map vertically */
-  height: 500px;
   width: 100%;
-  margin: 20px 0;
+  height: 100%;
 }
 
 #map {
   height: 100%;
   width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 1em;
+  border: #d9d9d9 3px solid;
+  transition: border ease-in-out 0.2s;
+}
+
+#map:hover {
+  border:hsl(120, 50%, 50%) solid  3px;
+}
+
+.report-button {
+  bottom: 5%;
+  z-index: 9999;
+  background-color: hsl(120, 50%, 50%);
+  position: absolute;
+  text-decoration: none;
+  color: black;
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  border-radius: 2em;
+  font-weight: 500;
 }
