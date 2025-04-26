@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import Map from './Map';
+import Map from '../../components/Map/Map';
 import './HomePage.css'; // Import the CSS file for styling
 
 function HomePage() {
   return (
     <div>
       <h1>Home Page</h1>
-      <Link to="/litter/1">View Litter 123</Link>
+      <Link to="/litter-info/1">View Litter 123</Link>
       <br />
-        <Link to="/add/1">Add Litter</Link>
+        <Link to="/report-litter">Add Litter</Link>
         <Map />
     </div>
   );
