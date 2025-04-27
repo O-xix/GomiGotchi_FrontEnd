@@ -63,7 +63,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 78vh
+  height: 78vh;
+  width: 100%;
 }
 
 .infoSection {
@@ -75,7 +76,7 @@
 }
 
 p.caption {
-  width: 90%;
+  min-width: 90%;
   background-color: hsl(0, 0%, 95%);
   padding: 1em 1.5em;
   border-radius: 1em;
@@ -101,6 +102,10 @@ p.caption {
   border-radius: 2em;
   font-weight: 500;
   transition: background-color 0.2s ease-in-out;
+}
+
+.pick-up-link.false {
+  background-color: hsl(120, 0%, 50%) !important;
 }
 
 .pick-up-link:hover {

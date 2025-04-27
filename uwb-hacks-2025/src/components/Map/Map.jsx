@@ -2,11 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Map.css'; // Import the CSS file for styling
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Map() {
   const mapRef = useRef(null); // Use a ref to store the map instance
   const APILINK = 'http://localhost:8000/api/v1/litter/litter'; // Replace with your API link
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Initialize the map with a default view
@@ -44,11 +45,15 @@ function Map() {
   }, []);
 
   // Function to add a marker to the map
-  const addMarker = (latitude, longitude, popupText) => {
+  const addMarker = (latitude, longitude, popupText, id) => {
     if (mapRef.current) {
-      L.marker([latitude, longitude]).addTo(mapRef.current)
+      const marker = L.marker([latitude, longitude]).addTo(mapRef.current)
         .bindPopup(popupText)
         .openPopup();
+
+      marker.on('click', () => {
+        navigate(`/litter-info/${id}`);
+      })
     }
   };
 
@@ -60,8 +65,8 @@ function Map() {
         console.log(data); // Log the entire response to check its structure
         if (data) {
           data.forEach((item) => {
-            const { latitude, longitude, caption } = item;
-            addMarker(latitude, longitude, caption);
+            const { latitude, longitude, caption, _id } = item;
+            addMarker(latitude, longitude, caption, _id);
           });
         } else {
           console.error('No results found in the API response.');
