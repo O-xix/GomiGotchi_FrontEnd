@@ -45,15 +45,17 @@ function Map() {
   }, []);
 
   // Function to add a marker to the map
-  const addMarker = (latitude, longitude, popupText, id) => {
+  const addMarker = (latitude, longitude, popupText = 'You are here!', id ='') => {
     if (mapRef.current) {
       const marker = L.marker([latitude, longitude]).addTo(mapRef.current)
         .bindPopup(popupText)
         .openPopup();
 
-      marker.on('click', () => {
-        navigate(`/litter-info/${id}`);
-      })
+      if (id) {
+        marker.on('click', () => {
+          navigate(`/litter-info/${id}`);
+        })
+      }
     }
   };
 
