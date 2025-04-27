@@ -19,9 +19,9 @@ function HomePage() {
 
   return (
     <div className='homepage-container'>
-      <nav className="navigation">
-        <Link to="/login" className='page-link'>
-          <FiLogOut className='icon' />
+      <nav className = "navigation">
+        <Link to = "/login" className='page-link'>
+          <FiLogOut className='icon'/>
         </Link>
         <h1 className="title">GomiGotchi</h1>
         <Link to="/settings" className='page-link'>
