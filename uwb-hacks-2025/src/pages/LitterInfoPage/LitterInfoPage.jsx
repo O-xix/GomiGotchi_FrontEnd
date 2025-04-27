@@ -13,6 +13,8 @@ function LitterInfoPage() {
   const caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
   const image = trashImage;
 
+  const distance = 73;
+
   return (
     <div className = "pageContainer">
       <section className= 'imageSection'>
@@ -32,10 +34,10 @@ function LitterInfoPage() {
           <p className = "caption">{caption}</p>
         </article>
         <div className='pick-up-button'>
-          <Link to={'/litter-pick-up' + id} className='pick-up-link'>Pick up!</Link>
+          <Link to={'/litter-pick-up/' + id} className='pick-up-link'>Pick up!</Link>
           <div className='distanceCaption'>
             <FaPersonWalking/>
-            <p>73 yards</p>
+            <p>{distance} yards</p>
           </div>
         </div>
       </section>
