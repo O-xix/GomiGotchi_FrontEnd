@@ -8,16 +8,16 @@ import './HomePage.css'; // Import the CSS file for styling
 function HomePage() {
   return (
     <div className='homepage-container'>
-      <nav>
+      <nav class = "navigation">
         <Link to = "/login" className='page-link'>
           <FiLogOut className='icon'/>
         </Link>
-        <h1>GomiGachi</h1>
+        <h1 className = "title">GomiGotchi</h1>
         <Link to = "/settings" className='page-link'>
           <TbSettings className='icon'/>
         </Link>
       </nav>
-      <main>
+      <main className = "main">
         <section className='gomi-section'>
             <img src = {gomi} alt = "Gomi" className='gomi'/>
             <div className = "hunger-bar-container">
