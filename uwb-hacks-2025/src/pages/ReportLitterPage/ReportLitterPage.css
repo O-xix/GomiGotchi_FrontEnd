@@ -3,6 +3,7 @@
   display: flex;
   height: 100vh;
   overflow: hidden;
+  width: 100vw;
 }
 
 .infoSection, .imageSection {
@@ -86,7 +87,8 @@
   gap: 3em;
 }
 
-p.caption {
+.captionInput {
+  text-decoration: none;
   width: 90%;
   background-color: hsl(0, 0%, 95%);
   padding: 1em 1.5em;

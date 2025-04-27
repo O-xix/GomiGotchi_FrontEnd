@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaLocationDot } from "react-icons/fa6";
 import { IoArrowBackCircleOutline as BackArrow } from "react-icons/io5";
 import { FaCamera } from "react-icons/fa";
 import './ReportLitterPage.css';
+import { SlCalender } from "react-icons/sl";
+
 
 function ReportLitterPage() {
   const [selectedImage, setSelectedImage] = useState(null); // State to store the selected image
   const [caption, setCaption] = useState(''); // State for the caption
   const [latitude, setLatitude] = useState(47.5097); // Example latitude
   const [longitude, setLongitude] = useState(-122.3331); // Example longitude
+  const [time, setTime] = useState(null);
   const APILINK = 'http://localhost:8000/api/v1/litter/new'; // API endpoint
+  const navigate = useNavigate();
 
   // Handle image selection
   const handleImageUpload = (e) => {
@@ -18,6 +22,7 @@ function ReportLitterPage() {
     if (file) {
       setSelectedImage(URL.createObjectURL(file)); // Create a preview URL for the image
       console.log('Selected file:', file.name); // Log the file name
+      setTime(new Date());
     }
   };
 
@@ -36,8 +41,8 @@ function ReportLitterPage() {
     formData.append('latitude', latitude);
     formData.append('longitude', longitude);
     formData.append('status', 'picked up');
-    formData.append('created_time', new Date().toISOString());
-    formData.append('pick_up_time', new Date().toISOString());
+    formData.append('created_time', time.toISOString());
+    formData.append('pick_up_time', time.toISOString());
 
     // Log the FormData
     for (let [key, value] of formData.entries()) {
@@ -57,6 +62,7 @@ function ReportLitterPage() {
       const data = await response.json();
       console.log('Response from server:', data);
       alert('Litter report submitted successfully!');
+      navigate('/')
     } catch (error) {
       console.error('Error submitting litter report:', error);
       alert('Failed to submit litter report. Please try again.');
@@ -65,46 +71,56 @@ function ReportLitterPage() {
 
   return (
     <div className="pageContainer">
-      {selectedImage ? (
-        <section className="imageSection">
-          <figure className="imageContainer">
-            <img className="litterImage" src={selectedImage} alt="Selected Litter" />
-          </figure>
-          <figcaption className="address">
-            <FaLocationDot /> North 36th Street, Troll Ave N
-          </figcaption>
-          <Link to="/" className="backArrow">
-            <BackArrow className="backArrowIcon" />
-          </Link>
+      <form onSubmit={handleSubmit}>
+        {selectedImage ? (
+          <section className="imageSection">
+            <figure className="imageContainer">
+              <img
+                className="litterImage"
+                src={URL.createObjectURL(selectedImage)} // Preview the selected image
+                alt="Selected Litter"
+              />
+            </figure>
+            <figcaption className="address">
+              <SlCalender />{time ? time.toLocaleString() : 'Time not available'}
+            </figcaption>
+            <Link to="/" className="backArrow">
+              <BackArrow className="backArrowIcon" />
+            </Link>
+          </section>
+        ) : (
+          <section className="addImageSection">
+            <div className="addImageButton">
+              <FaCamera className="cameraIcon" />
+              <h2>Add a picture</h2>
+            </div>
+            <input
+              type="file"
+              className="photoInput"
+              onChange={handleImageUpload}
+            />
+            <Link to="/" className="imageBackArrow">
+              <BackArrow className="imageBackArrowIcon" />
+            </Link>
+          </section>
+        )}
+        <section className="infoSection">
+          <article className="description">
+            <div className="titleContainer">
+              <h1>Description</h1>
+            </div>
+            <textarea
+              className="captionInput"
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+              placeholder="Enter a description of the litter"
+            />
+          </article>
+            <button type="submit" className="pick-up-link">
+              Report
+            </button>
         </section>
-      ) : (
-        <section className="addImageSection">
-          <div className="addImageButton">
-            <FaCamera className="cameraIcon" />
-            <h2>Add a picture</h2>
-          </div>
-          <input type="file" className="photoInput" onChange={handleImageUpload} />
-          <Link to="/" className="imageBackArrow">
-            <BackArrow className="imageBackArrowIcon" />
-          </Link>
-        </section>
-      )}
-      <section className="infoSection">
-        <article className="description">
-          <div className="titleContainer">
-            <h1>Description</h1>
-          </div>
-          <textarea
-            className="captionInput"
-            value={caption}
-            onChange={(e) => setCaption(e.target.value)}
-            placeholder="Enter a description of the litter"
-          />
-        </article>
-        <div className="pick-up-button">
-          <Link to="/" className="pick-up-link">Pick up</Link>
-        </div>
-      </section>
+      </form>
     </div>
   );
 }

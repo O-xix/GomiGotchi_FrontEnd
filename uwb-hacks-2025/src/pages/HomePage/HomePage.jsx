@@ -22,7 +22,9 @@ function HomePage() {
   const { isUserLoggedIn, user } = useAuth(); // Access the login state and user object
   const navigate = useNavigate();
 
+
   useEffect(() => {
+    console.log(isUserLoggedIn);
     if (!isUserLoggedIn) {
       navigate('/login'); // Redirect to login if not logged in
     }
