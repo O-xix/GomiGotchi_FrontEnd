@@ -16,7 +16,7 @@ function ReportLitterPage() {
   const handleImageUpload = (e) => {
     const file = e.target.files[0]; // Get the first selected file
     if (file) {
-      setSelectedImage(file); // Store the file in state
+      setSelectedImage(URL.createObjectURL(file)); // Create a preview URL for the image
       console.log('Selected file:', file.name); // Log the file name
     }
   };
@@ -65,58 +65,46 @@ function ReportLitterPage() {
 
   return (
     <div className="pageContainer">
-      <form onSubmit={handleSubmit}>
-        {selectedImage ? (
-          <section className="imageSection">
-            <figure className="imageContainer">
-              <img
-                className="litterImage"
-                src={URL.createObjectURL(selectedImage)} // Preview the selected image
-                alt="Selected Litter"
-              />
-            </figure>
-            <figcaption className="address">
-              <FaLocationDot /> North 36th Street, Troll Ave N
-            </figcaption>
-            <Link to="/" className="backArrow">
-              <BackArrow className="backArrowIcon" />
-            </Link>
-          </section>
-        ) : (
-          <section className="addImageSection">
-            <div className="addImageButton">
-              <FaCamera className="cameraIcon" />
-              <h2>Add a picture</h2>
-            </div>
-            <input
-              type="file"
-              className="photoInput"
-              onChange={handleImageUpload}
-            />
-            <Link to="/" className="imageBackArrow">
-              <BackArrow className="imageBackArrowIcon" />
-            </Link>
-          </section>
-        )}
-        <section className="infoSection">
-          <article className="description">
-            <div className="titleContainer">
-              <h1>Description</h1>
-            </div>
-            <textarea
-              className="captionInput"
-              value={caption}
-              onChange={(e) => setCaption(e.target.value)}
-              placeholder="Enter a description of the litter"
-            />
-          </article>
-          <div className="pick-up-button">
-            <button type="submit" className="pick-up-link">
-              Report
-            </button>
-          </div>
+      {selectedImage ? (
+        <section className="imageSection">
+          <figure className="imageContainer">
+            <img className="litterImage" src={selectedImage} alt="Selected Litter" />
+          </figure>
+          <figcaption className="address">
+            <FaLocationDot /> North 36th Street, Troll Ave N
+          </figcaption>
+          <Link to="/" className="backArrow">
+            <BackArrow className="backArrowIcon" />
+          </Link>
         </section>
-      </form>
+      ) : (
+        <section className="addImageSection">
+          <div className="addImageButton">
+            <FaCamera className="cameraIcon" />
+            <h2>Add a picture</h2>
+          </div>
+          <input type="file" className="photoInput" onChange={handleImageUpload} />
+          <Link to="/" className="imageBackArrow">
+            <BackArrow className="imageBackArrowIcon" />
+          </Link>
+        </section>
+      )}
+      <section className="infoSection">
+        <article className="description">
+          <div className="titleContainer">
+            <h1>Description</h1>
+          </div>
+          <textarea
+            className="captionInput"
+            value={caption}
+            onChange={(e) => setCaption(e.target.value)}
+            placeholder="Enter a description of the litter"
+          />
+        </article>
+        <div className="pick-up-button">
+          <Link to="/" className="pick-up-link">Pick up</Link>
+        </div>
+      </section>
     </div>
   );
 }

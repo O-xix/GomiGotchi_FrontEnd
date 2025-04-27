@@ -71,7 +71,7 @@
   padding: 0.25em 0;
 }
 
-.description {
+.captionInput {
   display: flex;
   flex-direction: column;
   align-items: center;
