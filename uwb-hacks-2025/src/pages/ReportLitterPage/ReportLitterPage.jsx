@@ -1,69 +1,56 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import { useParams } from 'react-router-dom';
+import { FaLocationDot, FaPersonWalking } from "react-icons/fa6";
+import trashImage from '../../assets/images/trash.jpg'
+import { Link } from 'react-router-dom';
+import { IoArrowBackCircleOutline as BackArrow } from "react-icons/io5";
+import { FaCamera } from "react-icons/fa";
+
+
 import './ReportLitterPage.css'; // Import the CSS file for styling
-import { IoArrowBackCircleOutline } from 'react-icons/io5'; // Import the back arrow icon
-import { Link } from 'react-router-dom'; // Import Link for navigation
 
-function ReportLitterPage({ address }) {
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(null);
 
-  // Handle image upload and preview
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setImage(file);
-      setPreview(URL.createObjectURL(file)); // Generate a preview URL
-    }
-  };
+function ReportLitterPage() {
 
-  // Handle form submission (for now, just log the data)
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Address:', address);
-    console.log('Description:', description);
-    console.log('Image:', image);
-    alert('Details submitted!'); // Temporary feedback
-  };
+  const caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
+  const [selectedImage, setSelectedImage] = useState(null);// trashImage;
+
+  function handleImageUpload(e) {
+    setSelectedImage(URL.createObjectURL(e.target.files[0]))
+  }
 
   return (
-    <div className="input-litter-page">
-      <div className="header">
-        <Link to="/"><IoArrowBackCircleOutline className='back-button'/></Link>
-      <h1>Input Litter Details</h1>
-      </div>
-      <form onSubmit={handleSubmit} className="input-form">
-        <label>
-          Address: { address || 'No address provided' }
-        </label>
-        <br />
-        <label>
-          Description:
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter description" required/>
-        </label>
-        <br />
-        <label>
-          Upload Image:
-          <input type="file" accept="image/*" onChange={handleImageUpload} required/>
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-
-      {/* Preview Section */}
-      <div className="preview-section">
-        <h2>Preview</h2>
-        <p><strong>Address:</strong> {address || 'No address provided'}</p>
-        <p><strong>Description:</strong> {description || 'No description provided'}</p>
-        {preview ? (
-          <div className="image-preview">
-            <img src={preview} alt="Preview"/>
-            <p className="caption">Uploaded Image</p>
+    <div className = "pageContainer">
+      {selectedImage ? (<section className= 'imageSection'>
+        <figure className = "imageContainer">
+          <img className = "litterImage" src = {selectedImage}/>
+        </figure>
+        <figcaption className = "address"><FaLocationDot/>North 36th Street, Troll Ave N</figcaption>
+        <Link to = "/" className = "backArrow">
+          <BackArrow className = "backArrowIcon" />
+        </Link>
+      </section>
+      ) : (<section className='addImageSection'>
+        <div className = "addImageButton">
+          <FaCamera className = "cameraIcon"/>
+          <h2>Add a picture</h2>
+        </div>
+        <input type = "file" className='photoInput' onChange={handleImageUpload}/>
+        <Link to = "/" className = "imageBackArrow">
+          <BackArrow className = "imageBackArrowIcon" />
+        </Link>
+      </section>)}
+      <section className = 'infoSection'>
+        <article className = "description">
+          <div className = "titleContainer">
+            <h1>Description</h1>
           </div>
-        ) : (
-          <p>No image uploaded</p>
-        )}
-      </div>
+          <p className = "caption">{caption}</p>
+        </article>
+        <div className='pick-up-button'>
+          <Link to={'/'} className='pick-up-link'>Report</Link>
+        </div>
+      </section>
     </div>
   );
 }

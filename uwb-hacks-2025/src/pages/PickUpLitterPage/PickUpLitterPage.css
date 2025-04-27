@@ -1,0 +1,248 @@
+
+.pageContainer {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .infoSection, .imageSection {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .litterImage {
+    object-fit: cover;
+    border-right: 5px solid hsl(120, 50%, 50%);
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      border-right: 5px solid #d9d9d9;
+    }
+    100% {
+      opacity: 1;
+      border-right: 5px solid hsl(120, 50%, 50%);;
+    }
+  }
+  
+  .backArrow {
+    position: absolute;
+    top: 4%;
+    left: 6%;
+  }
+  
+  .backArrowIcon {
+    color: #d9d9d9;
+    font-size: 3em;
+    transition: color 0.2s;
+  }
+  
+  .backArrowIcon:hover {
+    color: white;
+  }
+  
+  
+  .address {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    left: 6%;
+    position: absolute;
+    bottom: 6%;
+    color: white;
+    font-weight: bold;
+    width: 80%;
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+  
+  .titleContainer {
+    width: 90%;
+    font-size: 2.5rem;
+    padding: 0.25em 0;
+  }
+  
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 78vh
+  }
+  
+  .infoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5vw 0;
+    gap: 3em;
+  }
+  
+  p.caption {
+    width: 90%;
+    background-color: hsl(0, 0%, 95%);
+    padding: 1em 1.5em;
+    border-radius: 1em;
+    height: 60vh;
+    font-size: 1.25rem;
+  }
+  
+  .pick-up-button {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 2em;
+  }
+  
+  .addImageSection {
+    width: 50%;
+    height: 100%;
+    background-color: #ebebeb;
+    border: #d9d9d9 solid 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+  }
+  
+  .pick-up-link {
+    text-decoration: none;
+    background-color: hsl(120, 50%, 50%);
+    text-decoration: none;
+    color: black;
+    padding: 0.5em 2em;
+    font-size: 1.2rem;
+    border-radius: 2em;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .pick-up-link:hover {
+    background-color: hsl(120, 50%, 45%);
+  }
+  
+  .distanceCaption {
+    display: flex;
+    align-items: center;
+    padding: 0.75em;
+    gap: 0.5em;
+  }
+  .photoInput {
+    color: transparent;
+    padding-left: 10em;
+  }
+  .photoInput::-webkit-file-upload-button {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  .photoInput::before {
+    content: 'Upload a photo';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    color: black;
+  }
+  .photoInput:hover::before {
+    border-color: black;
+  }
+  .photoInput:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+  
+  .addImageButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 85%);
+    padding: 2em;
+    border-radius: 2em;
+    gap: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+  }
+  
+  .addImageButton:hover{
+    background-color: hsl(0, 0%, 80%);
+  }
+  
+  .cameraIcon {
+    color:hsl(120, 50%, 45%);
+    font-size: 5em;
+  }
+
+  .imageBackArrow {
+    position: absolute;
+    top: 4%;
+    left: 3em;
+  }
+  
+  .imageBackArrowIcon {
+    color: #d9d9d9;
+    font-size: 3em;
+    transition: color 0.2s;
+    color: black;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .pageContainer {
+      flex-direction: column;
+    }
+  
+    .infoSection, .imageSection {
+      width: 100%;
+      height: 50%;
+    }
+  
+    .infoSection {
+      gap: 2em;
+      padding-bottom: 1em;
+    }
+  
+    .imageSection {
+      height: 65%;
+    }
+  
+    .titleContainer {
+      width: 90%;
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      height: 35vh;
+    }
+  
+    .litterImage {
+      border-bottom: hsl(120, 50%, 50%) 3px solid;
+      border-right: none;
+    }
+  
+    p.caption {
+      height: 30vh;
+      font-size: 1rem;
+      overflow-y: scroll;
+    }
+  
+    .address {
+      font-size: 1.5rem;
+    }
+  }

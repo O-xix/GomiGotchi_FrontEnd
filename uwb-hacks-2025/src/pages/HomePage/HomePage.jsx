@@ -8,7 +8,7 @@ import './HomePage.css'; // Import the CSS file for styling
 function HomePage() {
   return (
     <div className='homepage-container'>
-      <nav class = "navigation">
+      <nav className = "navigation">
         <Link to = "/login" className='page-link'>
           <FiLogOut className='icon'/>
         </Link>
