@@ -7,7 +7,7 @@ import LifeLabsLogo from '../../assets/100_Life_Labs_Year.svg'; // Import the SV
 
 function LoginPage() {
   const navigate = useNavigate();
-  const { setIsUserLoggedIn } = useAuth(); // Access the setter for login state
+  const { setIsUserLoggedIn, setUser } = useAuth(); // Access the setters for login state and user object
   const APILINK = 'http://localhost:8000/api/v1/users/user'; // Base API link
 
   // State for username and password inputs
@@ -35,6 +35,7 @@ function LoginPage() {
         if (storedPassword === password) {
           console.log('Login successful!');
           setIsUserLoggedIn(true); // Set the user as logged in
+          setUser(data); // Store the user object in the context
           navigate('/'); // Redirect to the homepage
         } else {
           console.error('Invalid password!');
