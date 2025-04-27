@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { FaLocationDot, FaPersonWalking } from "react-icons/fa6";
 import trashImage from '../../assets/images/trash.jpg'
