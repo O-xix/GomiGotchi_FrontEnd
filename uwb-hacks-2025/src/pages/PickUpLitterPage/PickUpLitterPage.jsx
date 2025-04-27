@@ -5,6 +5,9 @@ import trashImage from '../../assets/images/trash.jpg'
 import { Link } from 'react-router-dom';
 import { IoArrowBackCircleOutline as BackArrow } from "react-icons/io5";
 import { FaCamera } from "react-icons/fa";
+import { SlCalender } from "react-icons/sl";
+import { useNavigate } from 'react-router-dom';
+
 
 
 import './PickUpLitterPage.css'; // Import the CSS file for styling
@@ -15,9 +18,18 @@ function PickUpLitterPage() {
 
   const caption = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ";
   const [selectedImage, setSelectedImage] = useState(null);// trashImage;
+  const [time, setTime] = useState();
+  const navigate = useNavigate();
 
   function handleImageUpload(e) {
-    setSelectedImage(URL.createObjectURL(e.target.files[0]))
+    setSelectedImage(URL.createObjectURL(e.target.files[0]));
+    setTime(new Date());
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("Hello")
+    navigate('/');
   }
 
   return (
@@ -26,7 +38,7 @@ function PickUpLitterPage() {
         <figure className = "imageContainer">
           <img className = "litterImage" src = {selectedImage}/>
         </figure>
-        <figcaption className = "address"><FaLocationDot/>North 36th Street, Troll Ave N</figcaption>
+        <figcaption className = "address"><SlCalender/>{time.toLocaleString()}</figcaption>
         <Link to = "/" className = "backArrow">
           <BackArrow className = "backArrowIcon" />
         </Link>
@@ -48,9 +60,9 @@ function PickUpLitterPage() {
           </div>
           <p className = "caption">{caption}</p>
         </article>
-        <div className='pick-up-button'>
-          <Link to={'/'} className='pick-up-link'>Pick up</Link>
-        </div>
+        <button type="submit" className="pick-up-link" onClick = {handleSubmit}>
+          Pick Up
+        </button>
       </section>
     </div>
   );
