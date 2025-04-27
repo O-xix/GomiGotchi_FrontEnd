@@ -3,7 +3,7 @@ import './SignUpPage.css';
 
 function SignUpPage() {
     return (
-        <div className="settings-page">
+        <div className="signup-page">
             <h1>Settings Page</h1>
         </div>
     );
