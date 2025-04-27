@@ -4,7 +4,7 @@
   height: 100vh;
 }
 
-nav {
+.navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@ nav {
   background-color: hsl(0, 0%, 95%);
 }
 
-h1 {
+.title {
   font-family: "DM Sans";
   font-size: 3rem;
   font-weight: 900;
@@ -43,7 +43,7 @@ h1 {
   font-size: 2em;
 }
 
-main {
+.main {
   display: flex;
   width: 100%;
   padding: 1em 3vw 2em 3vw;
