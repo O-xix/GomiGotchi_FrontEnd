@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function Map() {
   const mapRef = useRef(null); // Use a ref to store the map instance
+  const APILINK = 'http://localhost:8000/api/v1/litter/litter'; // Replace with your API link
 
   useEffect(() => {
     // Initialize the map with a default view
@@ -50,6 +51,28 @@ function Map() {
         .openPopup();
     }
   };
+
+  // Function to fetch litter data from the API and add markers to the map
+  const returnLitterData = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); // Log the entire response to check its structure
+        if (data) {
+          data.forEach((item) => {
+            const { latitude, longitude, caption } = item;
+            addMarker(latitude, longitude, caption);
+          });
+        } else {
+          console.error('No results found in the API response.');
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching litter data:', error);
+      });
+  };
+
+  returnLitterData(APILINK); // Call the function to fetch litter data
 
   return (
     <div className="map-container" style={{ width: '100%' }}>
