@@ -29,4 +29,4 @@ GomiGotchi combines **game design** with **environmental action** to encourage p
 
 ## 📌 Note
 This repo contains the **frontend prototype only**. The project was built collaboratively in a 5-person team as part of a 36-hour hackathon, and is not production-ready (yet).  
-
+Backend can be found at https://github.com/O-xix/GomiGotchi_BackEnd_ExpressAPI.
