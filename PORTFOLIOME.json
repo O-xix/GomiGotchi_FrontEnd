@@ -1,0 +1,18 @@
+{
+  "title": "GomiGotchi",
+  "subtitle": "Gamified litter-cleanup app",
+  "description": "A mobile app prototype created at UWB Hacks 2025 that gamifies real-world litter cleanup. Users care for a digital pet that stays happy and fed through GPS-tracked trash pickups. Built to make public cleanup rewarding and approachable.",
+  "technologies": [
+    "React",
+    "Leaflet.js",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Express.js",
+    "MongoDB"
+  ],
+  "links": {
+    "github": "https://github.com/yourusername/gomigotchi",
+    "demo": "https://yourdemo.com"
+  },
+  "thumbnail": "thumbnail.png"
+}
