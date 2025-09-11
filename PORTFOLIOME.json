@@ -10,6 +10,7 @@
     "Express.js",
     "MongoDB"
   ],
+  "category": "Competition", 
   "links": {
     "github": "https://github.com/yourusername/gomigotchi",
     "demo": "https://yourdemo.com"
